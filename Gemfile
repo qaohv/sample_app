@@ -28,5 +28,10 @@ group :production do
   gem 'pg'
 end
 
+group :development do
+  gem 'annotate', '2.5.0'
+end
+
 gem 'devise', :github => 'plataformatec/devise', :branch => 'rails4'
 gem 'bootstrap-sass'
+gem 'bcrypt-ruby'
