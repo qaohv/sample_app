@@ -1,4 +1,6 @@
 SampleApp::Application.routes.draw do
+  get "users/new"
+  get "/signup", to: "users#new"
  # get "/home", to: "static_pages#home" 
   root to: "static_pages#home"
   get "/help", to: "static_pages#help"
