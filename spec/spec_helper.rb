@@ -1,4 +1,3 @@
-# This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'spec_helper'
 
 describe "Static pages" do
@@ -10,4 +9,4 @@ describe "Static pages" do
       page.should have_content('Sample App')
     end
   end
-end
+end 

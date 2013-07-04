@@ -27,3 +27,6 @@ end
 group :production do
   gem 'pg'
 end
+
+gem 'devise', :github => 'plataformatec/devise', :branch => 'rails4'
+gem 'bootstrap-sass'
