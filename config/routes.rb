@@ -1,5 +1,6 @@
 SampleApp::Application.routes.draw do
  
+  devise_for :users, :controllers => { :registrations => 'registrations' }
   root to: "static_pages#home"
   
   get "/help", to: "static_pages#help"

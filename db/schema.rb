@@ -11,18 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130711105906) do
-
-  create_table "notes", force: true do |t|
-    t.string   "content"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "theme"
-  end
-
-  add_index "notes", ["theme"], name: "index_notes_on_theme"
-  add_index "notes", ["user_id", "created_at"], name: "index_notes_on_user_id_and_created_at"
+ActiveRecord::Schema.define(version: 20130712104555) do
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -37,8 +26,6 @@ ActiveRecord::Schema.define(version: 20130711105906) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "username"
-    t.string   "timezone"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
