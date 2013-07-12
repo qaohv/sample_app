@@ -1,7 +1,7 @@
 SampleApp::Application.routes.draw do
  
   devise_for :users, :controllers => { :registrations => 'registrations', :sessions => 'sessions' }
-
+  resources :users, only: [ :show ]
   root to: "static_pages#home"
   
   get "/help", to: "static_pages#help"
