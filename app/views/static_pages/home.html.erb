@@ -1,6 +1,38 @@
-<div class="center hero-unit">
-  <h1>Welcome to the start page my note manager</h1>
-<h2>Some common words about this service.</h2>
+<% if signed_in? %>
+  <div class="row">
+    <aside class="span4">
+      <section>
+        <%= form_for(@note) do |f| %>
+        
+        <%= f.label :theme %>
+        <%= f.text_field :theme %>
 
-  <%= link_to "Sign up now!", new_user_registration_path , class: "btn btn-large btn-primary" %>
-</div>
+        <%= f.label :content %>
+        <%= f.text_area :content %>
+        
+        <%= f.submit "Complete!", class: "btn btn-large btn-primary" %>
+      
+      <% end %>
+      </section>
+    </aside>
+
+    <div class="span8">
+      <% current_user.notes.each do |note| %>
+        <li>
+          Theme: <%= note.theme %>
+          <span class="content"><%= note.content %></span>
+        </li>
+      <% end %>
+    </div>
+
+
+
+  </div>
+<% else %>
+  <div class="center hero-unit">
+    <h1>Welcome to the note manager</h1>
+
+    <%= link_to "Sign up now!", new_user_registration_path,
+                                class: "btn btn-large btn-primary" %>
+  </div>
+<% end %>

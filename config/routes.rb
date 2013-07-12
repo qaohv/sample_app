@@ -1,7 +1,12 @@
 SampleApp::Application.routes.draw do
  
+  get "notes/create"
+  get "notes/destroy"
   devise_for :users, :controllers => { :registrations => 'registrations', :sessions => 'sessions' }
+  
   resources :users, only: [ :show ]
+  resources :notes, only: [ :create, :destroy]
+
   root to: "static_pages#home"
   
   get "/help", to: "static_pages#help"
