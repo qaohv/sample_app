@@ -1,5 +1,6 @@
 <% if user_signed_in? %>
   <div class="row">
+    <% if false %>
     <aside class="span4">
       <section>
         <%= form_for(@note) do |f| %>
@@ -15,19 +16,12 @@
       <% end %>
       </section>
     </aside>
-
-    <div class="span8">
-      <% current_user.notes.each do |note| %>
-        <li>
-          Theme: <%= note.theme %>
-          <span class="content"><%= note.content %></span>
-        </li>
-      <% end %>
+    <% end %>
+    <div class= "span9">
+      <ul class="notes">  
+      <%= render @notes %>
+      </ul>
     </div>
-
-
-
-  </div>
 <% else %>
   <div class="center hero-unit">
     <h1>Welcome to the note manager</h1>

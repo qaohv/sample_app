@@ -16,7 +16,6 @@ class RegistrationsController < Devise::RegistrationsController
 
   	@user = User.find(current_user.id)
   	
-  	
   	new_username = params[:user][:username] 
   	unless new_username.blank?
   		@user.update_attributes(username: new_username) unless new_username == @user.username
