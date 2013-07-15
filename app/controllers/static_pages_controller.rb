@@ -1,7 +1,7 @@
 class StaticPagesController < ApplicationController
   def home
-    @note = current_user.notes.build
-   # @notes = current_user.notes#? ? current_user.notes : Note.all
+    @note = current_user ? current_user.notes.build : nil
+    @notes = current_user ? current_user.notes : nil
   end
 
   ["help","contact","about"].each do |action|
