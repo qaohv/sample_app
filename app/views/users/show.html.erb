@@ -1,4 +1,4 @@
-<% provide(:title, "Personal page") %>
+<% provide(:title, " #{current_user.username} Personal page") %>
   <div class="span8">
     <%= "#{@user.email}" %>
   </div>
