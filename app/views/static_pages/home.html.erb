@@ -16,18 +16,16 @@
       <% end %>
       </section>
     </aside>
-
-    <% if @notes.count > 0 %>
-       <div class= "span9">
+    
+    <% unless @notes.nil? %>
+      <div class= "span9">
          <h3>notes (<%= @notes.count %>)</h3>
-        <ul class="notes">  
-          Render notes!
-          <%= render @notes %>
-        </ul>
-      </div>
+          <ul class="notes">  
+            <%= render @notes %>
+          </ul>
+        </div>
     <% end %>
-
-  <% else %>
+<% else %>
     <div class="center hero-unit">
       <h1>Welcome to the note manager</h1>
 
