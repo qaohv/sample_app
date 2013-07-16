@@ -1,3 +1,14 @@
+Note dev info
+<i>
+	<% if note.theme.nil? %>
+		Note null!<br />
+		note.theme |<%= note.theme %>|<br />
+		note.content |<%= note.content %>|<br />
+		note.id |<%= note.id%>| <br />
+	<% end %>
+<i>
+
+
 <li>
  	Theme: <%= note.theme %><br />
   <%= note.content %><br />

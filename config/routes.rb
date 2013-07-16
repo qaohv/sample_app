@@ -2,7 +2,6 @@ SampleApp::Application.routes.draw do
  
   devise_for :users, :controllers => { :registrations => 'registrations', :sessions => 'sessions' }
   
-  resources :users, only: [ :show ]
   resources :notes, only: [ :create, :destroy]
 
   root to: "static_pages#home"
