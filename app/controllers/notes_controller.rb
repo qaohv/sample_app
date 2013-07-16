@@ -13,6 +13,14 @@ class NotesController < ApplicationController
     end
   end
 
+  def edit
+    @note = Note.find(params[:id])
+    @note.destroy
+    @notes = current_user.notes
+    render 'static_pages/home'
+  end
+
+
   def destroy
     @note = Note.find(params[:id])
     @note.destroy

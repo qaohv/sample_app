@@ -20,3 +20,4 @@ class Note < ActiveRecord::Base
 
   default_scope order: 'notes.created_at DESC'
 end
+	

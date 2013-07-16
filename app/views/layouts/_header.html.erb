@@ -4,7 +4,15 @@
       <%= link_to "Note Manager", root_path, id: "logo" %>
       <nav>
         <ul class="nav pull-right">
-          <li><%= link_to "Home", root_path %></li>
+          <% if user_signed_in? %>
+            <form class="form-search">
+              <input type="text" class="input-medium search-query">
+             <button type="submit" class="btn">Search</button>
+            </form>
+            <li> <%= link_to "All notes", root_path %></li>
+          <% else %>
+            <li> <%= link_to "Home", root_path%>
+          <% end %>
           <li><%= link_to "About", about_path %> </li>
           <li><%= link_to "Help", help_path %></li>
           <% if user_signed_in? %>
