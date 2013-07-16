@@ -5,9 +5,8 @@
       <nav>
         <ul class="nav pull-right">
           <% if user_signed_in? %>
-            <form class="form-search">
-              <input type="text" class="input-medium search-query">
-             <button type="submit" class="btn">Search</button>
+            <form class="navbar-search">
+              <input type="text" class="search-query" placeholder="Search..."> 
             </form>
             <li> <%= link_to "All notes", root_path %></li>
           <% else %>
