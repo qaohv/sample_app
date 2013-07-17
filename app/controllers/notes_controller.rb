@@ -15,11 +15,14 @@ class NotesController < ApplicationController
 
   def edit
     @note = Note.find(params[:id])
-    @note.destroy
     @notes = current_user.notes
-    render 'static_pages/home'
   end
-
+  
+  def update
+    @note = Note.find(params[:id])
+    @note.update_attributes(note_params)
+    redirect_to root_url
+  end
 
   def destroy
     @note = Note.find(params[:id])

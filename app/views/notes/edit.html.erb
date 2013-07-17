@@ -1,6 +1,5 @@
   <% if user_signed_in? %>
   <div class="row">
-
     <aside class="span4">
       <section>
         <%= form_for(@note) do |f| %>
@@ -11,7 +10,7 @@
         <%= f.label :content %>
         <%= f.text_area :content %>
         
-        <%= f.submit "Complete!", class: "btn btn-large btn-primary" %>
+        <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
       
       <% end %>
       </section>
