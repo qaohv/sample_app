@@ -1,11 +1,16 @@
 SampleApp::Application.routes.draw do
  
   devise_for :users, :controllers => { :registrations => 'registrations', :sessions => 'sessions' }
+ 
+ # resources :notes, only: [ :create, :edit, :update, :destroy, :send]
   
-  resources :notes, only: [ :create, :edit, :update, :destroy]
+  resources :notes do 
+    get :send_off, on: :member
+  end
 
   root to: "static_pages#home"
-  
+
+    
   get "/help", to: "static_pages#help"
   get "/about", to: "static_pages#about"
   # The priority is based upon order of creation: first created -> highest priority.

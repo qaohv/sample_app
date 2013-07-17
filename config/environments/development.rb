@@ -33,7 +33,15 @@ SampleApp::Application.configure do
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default :charset => "utf-8"
 
+#  class DevelopmentMailInterceptor
+#    def self.delivering_email(message)
+#      message.subject = "#{message.subject}"
+    #  message.to
+ #   end
+ # end
 
+ # Mail.register_interceptor(DevelopmentMailInterceptor) if Rails.env.development?
+  
   ActionMailer::Base.smtp_settings = {
     :address => "smtp.gmail.com",
     :port => 587,

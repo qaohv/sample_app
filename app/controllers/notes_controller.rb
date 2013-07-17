@@ -19,7 +19,7 @@ class NotesController < ApplicationController
     @is_edit_form = true ;
     render 'static_pages/home'
   end
-  
+
   def update
     @note = Note.find(params[:id])
     @note.update_attributes(note_params)
@@ -31,6 +31,16 @@ class NotesController < ApplicationController
     @note.destroy
     redirect_to root_url
   end
+
+  def send_off
+    p "send_off ================================= "
+    p params
+    @note = Note.find(params[:id])      
+    NoteMailer.send_note(@note).deliver
+    flash[:success] = "message sended"
+    redirect_to root_url
+  end
+
 
   private 
 

@@ -35,3 +35,4 @@ end
 gem 'devise', :github => 'plataformatec/devise', :branch => 'rails4'
 gem 'bootstrap-sass'
 gem 'bcrypt-ruby'
+gem 'mail'
