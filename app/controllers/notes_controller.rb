@@ -35,8 +35,8 @@ class NotesController < ApplicationController
   def send_off
     p "send_off ================================= "
     p params
-    @note = Note.find(params[:id])      
-    NoteMailer.send_note(@note).deliver
+    @note = Note.find(params[:id])
+    NoteMailer.send_note(User.find(@note.user_id).email, @note).deliver
     flash[:success] = "note sended"
     redirect_to root_url
   end
