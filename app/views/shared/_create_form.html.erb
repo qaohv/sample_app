@@ -1,0 +1,11 @@
+<%= form_for(@note) do |f| %>
+        
+	<%= f.label :theme %>
+  <%= f.text_field :theme %>
+
+  <%= f.label :content %>
+  <%= f.text_area :content %>
+        
+  <%= f.submit "Complete!", class: "btn btn-large btn-primary" %>
+     
+<% end %>

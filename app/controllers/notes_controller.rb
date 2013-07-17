@@ -1,7 +1,7 @@
 class NotesController < ApplicationController
 
    before_filter :authenticate_user!
-   before_filter :detect_empty_note
+   before_filter :detect_empty_note, only: [ :create, :update ]
 
   def create
     @note = current_user.notes.build(note_params)
@@ -16,6 +16,8 @@ class NotesController < ApplicationController
   def edit
     @note = Note.find(params[:id])
     @notes = current_user.notes
+    @is_edit_form = true ;
+    render 'static_pages/home'
   end
   
   def update
@@ -37,12 +39,12 @@ class NotesController < ApplicationController
     end
 
     def detect_empty_note
-      unless params[:note].blank?
+      #unless params[:note].blank?
         if params[:note][:theme].blank? || params[:note][:content].blank?
           flash[:notice] = "Theme or content is empty"
           redirect_to root_url
         end
-      end
+      #end
     end
 
 end

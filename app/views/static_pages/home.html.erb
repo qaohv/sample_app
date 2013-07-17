@@ -1,19 +1,12 @@
   <% if user_signed_in? %>
   <div class="row">
-
     <aside class="span4">
       <section>
-        <%= form_for(@note) do |f| %>
-        
-        <%= f.label :theme %>
-        <%= f.text_field :theme %>
-
-        <%= f.label :content %>
-        <%= f.text_area :content %>
-        
-        <%= f.submit "Complete!", class: "btn btn-large btn-primary" %>
-      
-      <% end %>
+       <% unless @is_edit_form %> 
+        <%= render 'shared/create_form' %>
+       <% else %>
+        <%= render 'shared/update_form' %>
+       <% end %>
       </section>
     </aside>
 
@@ -25,7 +18,9 @@
           </ul>
         </div>
     <% end %>
-<% else %>
+
+
+  <% else %>
     <div class="center hero-unit">
       <h1>Welcome to the note manager</h1>
 
