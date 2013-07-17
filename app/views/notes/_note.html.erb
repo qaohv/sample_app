@@ -2,7 +2,7 @@
  	Theme: <%= note.theme %><br />
   <%= note.content %><br />
   <p align ='right'> Last changes <%= "#{(note.updated_at + ActiveSupport::TimeZone[current_user.timezone].utc_offset).strftime("%d/%m/%Y at %T")}"%> </p>
-   <p align = 'right'> <%= link_to "" , edit_note_path(note), class: "icon-pencil" %>
+   <p align = 'right'> <%= link_to "", '#', class: "icon-envelope" %> <%= link_to "" , edit_note_path(note), class: "icon-pencil" %>
     	<%= link_to "", note, class: "icon-trash", 
     																				 method: :delete,
   																					 data: { confirm: "You sure?" }%>
