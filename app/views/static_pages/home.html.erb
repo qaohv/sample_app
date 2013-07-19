@@ -1,7 +1,7 @@
   <% if user_signed_in? %>
   <% provide(:title, current_user.username) %>
   <div class="row">
-    <aside class="span4">
+    <aside class="span9">
       <section>
        <% unless @is_edit_form %> 
         <%= render 'shared/create_form' %>

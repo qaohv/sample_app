@@ -1,6 +1,6 @@
 <li>
  	Theme: <%= note.theme %><br />
-  <%= note.content %><br />
+  <%= raw note.content %><br />
   <p align ='right'> Last changes <%= "#{(note.updated_at + ActiveSupport::TimeZone[current_user.timezone].utc_offset).strftime("%d/%m/%Y at %T")}"%> </p>
    <p align = 'right'> <%= link_to "", send_off_note_path(note)	, class: "icon-envelope" %> <%= link_to "" , edit_note_path(note), class: "icon-pencil" %>
     	<%= link_to "", note, class: "icon-trash", 

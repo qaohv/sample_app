@@ -41,7 +41,7 @@ SampleApp::Application.configure do
  # end
 
  # Mail.register_interceptor(DevelopmentMailInterceptor) if Rails.env.development?
-  
+
   ActionMailer::Base.smtp_settings = {
     :address => "smtp.gmail.com",
     :port => 587,

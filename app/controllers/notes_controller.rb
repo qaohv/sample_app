@@ -9,7 +9,7 @@ class NotesController < ApplicationController
       flash[:success] = "Note created!"
       redirect_to root_url
     else
-      render "static_pages/home" 
+      render 'static_pages/home' 
     end
   end
 
