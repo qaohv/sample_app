@@ -5,6 +5,11 @@
       <nav>
         <ul class="nav pull-right">
           <% if user_signed_in? %>
+            <li>
+              <form class="navbar-search" action="/notes/search">
+                <input id="search" name="search" type="text" class="search-query" placeholder="Search..."> 
+              </form>
+            </li>
             <li> <%= link_to "All notes", root_path %></li>
           <% else %>
             <li> <%= link_to "Home", root_path%>

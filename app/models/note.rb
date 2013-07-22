@@ -19,5 +19,6 @@ class Note < ActiveRecord::Base
   validates :theme, presence: true, length: { minimum: 1 }
 
   default_scope order: 'notes.created_at DESC'
+
 end
 	

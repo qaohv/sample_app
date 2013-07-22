@@ -2,6 +2,7 @@ class NotesController < ApplicationController
 
    before_filter :authenticate_user!
    before_filter :detect_empty_note, only: [ :create, :update ]
+   before_filter :detect_search_params, only: [:search]
 
   def create
     @note = current_user.notes.build(note_params)
@@ -41,9 +42,16 @@ class NotesController < ApplicationController
     redirect_to root_url
   end
 
+  def search
+    @note = Note.new
+    @notes = 
+      current_user.notes.find_all do |note|
+        note.theme[params[:search]] || note.content[params[:search]]
+      end
+    render "static_pages/home"
+  end
 
   private 
-
     def note_params
       params.require(:note).permit(:theme, :content)
     end
@@ -55,6 +63,13 @@ class NotesController < ApplicationController
           redirect_to root_url
         end
       #end
+    end
+
+    def detect_search_params
+      p 'detect_search_params'
+      p params[:search]
+      p'+++++++++++++++'
+      (flash[:error] = "Bad search params"; redirect_to '/') if params[:search].blank?
     end
 
 end

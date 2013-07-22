@@ -4,8 +4,9 @@ SampleApp::Application.routes.draw do
  
  # resources :notes, only: [ :create, :edit, :update, :destroy, :send]
   
-  resources :notes do 
+  resources :notes, except: [:new, :index, :show] do 
     get :send_off, on: :member
+    get :search, on: :collection
   end
 
   root to: "static_pages#home"
