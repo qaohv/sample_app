@@ -12,12 +12,16 @@
     </aside>
 
     <% unless @notes.nil? %>
+
+      
       <div class= "span9">
+         <%= will_paginate @notes %> 
          <h3>notes (<%= @notes.count %>)</h3>
           <ul class="notes">  
             <%= render @notes %>
           </ul>
         </div>
+
     <% end %>
 
 

@@ -37,3 +37,7 @@ gem 'bootstrap-sass'
 gem 'bcrypt-ruby'
 gem 'mail'
 gem 'ckeditor_rails'	
+
+gem 'faker'
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
